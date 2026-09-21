@@ -1,0 +1,73 @@
+policy = "Original bytes are retained locally outside Git. Paths are relative to the repository root. Remote availability is not implied."
+
+[[files]]
+original_path = "releases/v2.1-family-split-v1/checks.json"
+local_artifact = "artifacts/releases/v2.1-family-split-v1/checks.json"
+sha256 = "c16c3a730452988d64a5435b814d25dea1393bf972d1e555b37c83605e227638"
+bytes = 1095
+
+[[files]]
+original_path = "releases/v2.1-family-split-v1/manifest.json"
+local_artifact = "artifacts/releases/v2.1-family-split-v1/manifest.json"
+sha256 = "f1f45aeb0ce0aeb530978816918946018a539d7fd746cf56c1d8d97f03efde47"
+bytes = 3673
+
+[[files]]
+original_path = "releases/v2.1-family-split-v1/membership.jsonl"
+local_artifact = "artifacts/releases/v2.1-family-split-v1/membership.jsonl"
+sha256 = "d8debe74d42622a36255baaa087a4e5d65dd1eb6dcd65f7d6cee69697e28bc02"
+bytes = 1504409
+
+[[files]]
+original_path = "releases/v2.1-pool-v1/checks.json"
+local_artifact = "artifacts/releases/v2.1-pool-v1/checks.json"
+sha256 = "9014490df6ad2621175949213be69f07a57977a98f16a4a8bae7e84fbe44f8a3"
+bytes = 593
+
+[[files]]
+original_path = "releases/v2.1-pool-v1/manifest.json"
+local_artifact = "artifacts/releases/v2.1-pool-v1/manifest.json"
+sha256 = "db0d0888323658438076601e2b2082b33e4353aa625ba87e152c22f76fdada27"
+bytes = 1706
+
+[[files]]
+original_path = "releases/v2.1-pool-v1/membership.jsonl"
+local_artifact = "artifacts/releases/v2.1-pool-v1/membership.jsonl"
+sha256 = "447398bec3d8cc851f6c07f9e69b84eed27e014b1d5336a2908cdc8c16e245d3"
+bytes = 2782612
+
+[[files]]
+original_path = "releases/v2.1.freeze.json"
+local_artifact = "artifacts/releases/v2.1.freeze.json"
+sha256 = "a0acda2c1cdf56c92ae2cc45b08206905adb2f73014d1c4adc21fea7a40ce612"
+bytes = 2643
+
+[[files]]
+original_path = "src/infra/contracts/gold-semantic.json"
+local_artifact = "artifacts/repository-json-v1/src/infra/contracts/gold-semantic.json"
+sha256 = "936292e5137bd024753ae10e1a6b7a9cbe5c43c7f62eac6fd5c7a36448d34f68"
+bytes = 4790
+
+[[files]]
+original_path = "src/tools/prompts/history/gold-v2-concept-aliases.json"
+local_artifact = "artifacts/repository-json-v1/src/tools/prompts/history/gold-v2-concept-aliases.json"
+sha256 = "6af48271adf8e21e24da2830a9e986fe58f6f8c472a2c4e93ef7ef8063164c3d"
+bytes = 3040
+
+[[files]]
+original_path = "src/tools/prompts/history/manifest.json"
+local_artifact = "artifacts/repository-json-v1/src/tools/prompts/history/manifest.json"
+sha256 = "c9adfedd3d7399f540bfa0b1f1ee5cd562649fc81b338392c18c23daab7824a4"
+bytes = 1254
+
+[[files]]
+original_path = "src/tools/prompts/manifest.json"
+local_artifact = "artifacts/repository-json-v1/src/tools/prompts/manifest.json"
+sha256 = "6504b28e0010b5fd4af7e778364d5c30163341ff5d255e26aa5cb70b14ba7c19"
+bytes = 1973
+
+[[files]]
+original_path = "tests/fixtures/prompt-examples.json"
+local_artifact = "artifacts/repository-json-v1/tests/fixtures/prompt-examples.json"
+sha256 = "561a57a8dfd11b7f1b4aed0f658083c5ae41f7a59cfed33f20ec77fdc70bdfa2"
+bytes = 16164

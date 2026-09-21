@@ -1,0 +1,108 @@
+version = "family-split/1.0"
+seed = 42
+validation_family_fraction_target = 0.2
+validation_product_fraction_actual = 0.20176167525344857
+method = "datasets.Dataset.train_test_split on sorted unique audit_group_id values"
+datasets_version = "4.0.0"
+numpy_version = "2.5.3"
+pool_membership_sha256 = "447398bec3d8cc851f6c07f9e69b84eed27e014b1d5336a2908cdc8c16e245d3"
+source_sha256 = "152ccd437a05f49044c400db947f065c839743da74b098e45738b41ddd7a0bda"
+source_revision = "ac32109d617722eea34c1ff69f5d0b086afe82fc"
+implementation_sha256 = "254da42e617a43fdc8889c6211d92e5b28a0ff4a5a5b86cc764ca33c41fc6572"
+membership_sha256 = "d8debe74d42622a36255baaa087a4e5d65dd1eb6dcd65f7d6cee69697e28bc02"
+export_directory = "artifacts/splits/v2.1-family-split-v1"
+limitations = [
+    "Split is random by family, not stratified by category.",
+    "Rare categories can be absent from train or validation.",
+    "Leakage checks cover detected families; undetected near-duplicates remain possible.",
+    "Source release_partition fields remain historical; use these files or memberships.",
+    "Labels remain AI-generated; this split does not establish annotation accuracy.",
+]
+
+[counts]
+train = 4803
+validation = 1214
+evaluation = 600
+reserved_context = 1146
+
+[family_counts]
+train = 3854
+validation = 964
+evaluation = 504
+reserved_context = 150
+
+[taxonomy_counts.train]
+"gold.bar" = 514
+"gold.coin" = 6
+"gold.melted" = 149
+"jewelry.bangle" = 583
+"jewelry.bracelet" = 671
+"jewelry.earring" = 737
+"jewelry.necklace" = 700
+"jewelry.pendant" = 741
+"jewelry.ring" = 662
+unknown = 40
+
+[taxonomy_counts.validation]
+"gold.bar" = 145
+"gold.coin" = 3
+"gold.melted" = 24
+"jewelry.bangle" = 138
+"jewelry.bracelet" = 177
+"jewelry.earring" = 171
+"jewelry.necklace" = 183
+"jewelry.pendant" = 188
+"jewelry.ring" = 175
+unknown = 10
+
+[taxonomy_counts.evaluation]
+"gold.bar" = 74
+"gold.coin" = 41
+"gold.melted" = 57
+"jewelry.bangle" = 85
+"jewelry.bracelet" = 55
+"jewelry.earring" = 48
+"jewelry.half_set" = 1
+"jewelry.necklace" = 63
+"jewelry.pendant" = 55
+"jewelry.ring" = 63
+"jewelry.set" = 8
+unknown = 50
+
+[taxonomy_counts.reserved_context]
+"gold.bar" = 95
+"gold.coin" = 7
+"gold.melted" = 616
+"jewelry.bangle" = 209
+"jewelry.bracelet" = 19
+"jewelry.earring" = 37
+"jewelry.necklace" = 52
+"jewelry.pendant" = 13
+"jewelry.ring" = 91
+unknown = 7
+
+[detected_overlap_counts]
+"train/validation/input_hash" = 0
+"train/validation/source_family" = 0
+"train/validation/product_identity" = 0
+"train/validation/audit_group" = 0
+"train/evaluation/input_hash" = 0
+"train/evaluation/source_family" = 0
+"train/evaluation/product_identity" = 0
+"train/evaluation/audit_group" = 0
+"validation/evaluation/input_hash" = 0
+"validation/evaluation/source_family" = 0
+"validation/evaluation/product_identity" = 0
+"validation/evaluation/audit_group" = 0
+
+[exports."train.jsonl"]
+sha256 = "fbfeed86c7e2805b58d4f5343dcaf0efeb724ab4da2af102741dfc0fd0b8c9fe"
+bytes = 34725777
+
+[exports."validation.jsonl"]
+sha256 = "5537a9d570af0d6733b196413cf9255f4caae68a3e86e1146afe1fcc196d8365"
+bytes = 8798305
+
+[exports."evaluation.jsonl"]
+sha256 = "f47a3e408a49dd06fe4c55a47ca5e5f76a8cf3d7b9bf694d57a5263951d60d60"
+bytes = 5106678

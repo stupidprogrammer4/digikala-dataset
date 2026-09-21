@@ -1,0 +1,65 @@
+dataset_version = "2.1"
+repo_id = "amupouya/digikala-gold-products-fa"
+revision = "ac32109d617722eea34c1ff69f5d0b086afe82fc"
+full_export_sha256 = "152ccd437a05f49044c400db947f065c839743da74b098e45738b41ddd7a0bda"
+products = 7763
+published_manifest_sha256 = "ff73798b93b6f01e20a3bff77322634b5a36694a5549476327bde4fbfcf14c08"
+local_snapshot = "artifacts/frozen/v2.1"
+policy = "Do not overwrite v2.1 or its evaluation. Store review proposals and new split membership separately; publish any changed data under a new version."
+
+[splits]
+evaluation = 600
+reserved_context = 5610
+train_candidates = 1553
+
+[files."CHANGELOG.md"]
+sha256 = "d7747abd4c3582503945a915a7948ba6e079068933b35949b9a6573d3e2433ce"
+bytes = 1145
+
+[files."README.md"]
+sha256 = "524f2c21746d5e7bf1b1a1d2acb560931622538c051240108702653d9509163b"
+bytes = 21000
+
+[files."annotation/adjudication-policy.md"]
+sha256 = "0cc422f82e53ead02b0eca081c4bd04470b5b4768ac4f311ca3275332c17e003"
+bytes = 3343
+
+[files."annotation/blind-ai-review-v1.md"]
+sha256 = "bfeedd0468c73fb46c47e61e6413267dac39b3afc78eae00c5f12b2611c2779a"
+bytes = 2751
+
+[files."changes/reviewed-records.jsonl"]
+sha256 = "bf3e5849b0e93c0ab3488b4e7da243030f81bd5f4f60bd8e98486320a6b4428c"
+bytes = 197754
+
+[files."data/evaluation.jsonl"]
+sha256 = "f47a3e408a49dd06fe4c55a47ca5e5f76a8cf3d7b9bf694d57a5263951d60d60"
+bytes = 5106678
+
+[files."data/reserved_context.jsonl"]
+sha256 = "454b7693ee2fb85f9dc3ad4401ab5e08fb22eb8f18ebd2c289ba65d9f52b3351"
+bytes = 40061129
+
+[files."data/train_candidates.jsonl"]
+sha256 = "7ff9b61c647313a8671015a1f71ccacc16cf8a3103d25a1a147cc5a4c0befc4d"
+bytes = 11269990
+
+[files."reports/blind-ai-evaluation-v1.report.json"]
+sha256 = "f617bb2b826cba6124dfa4f3dae59c23ec951d4b42ed2e93fbb17cf79b8ff823"
+bytes = 16006
+
+[files."reports/semantic-baseline-v1.report.json"]
+sha256 = "e92f92f2dceb343071990c12e2c2f5be056c0f67eef7be1d2c0f1443be1cd7c3"
+bytes = 202948
+
+[files."schemas/dataset-features.json"]
+sha256 = "2b1535bea7922e228be5ab9c4ac14ccca06b3068ba061cf41a63c994bc89f166"
+bytes = 22966
+
+[files."schemas/gold-semantic-2.0.schema.json"]
+sha256 = "9b8c6d552db33a27006819f2e6f651e20c4c40c7018555dc13f3146b89cd5aa5"
+bytes = 11531
+
+[files."schemas/product-core-1.0.schema.json"]
+sha256 = "0c119958fa2cc12b1ba6dbad620d3c34cf68315557da1fdb6d1d86c90f7f417d"
+bytes = 6873

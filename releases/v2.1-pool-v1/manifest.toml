@@ -1,0 +1,39 @@
+connected_components = 5322
+version = "snapshot-reservation-pool/1.0"
+source_revision = "ac32109d617722eea34c1ff69f5d0b086afe82fc"
+source_sha256 = "152ccd437a05f49044c400db947f065c839743da74b098e45738b41ddd7a0bda"
+evaluation_sha256 = "f47a3e408a49dd06fe4c55a47ca5e5f76a8cf3d7b9bf694d57a5263951d60d60"
+membership_sha256 = "447398bec3d8cc851f6c07f9e69b84eed27e014b1d5336a2908cdc8c16e245d3"
+implementation_sha256 = "3241c872d5aeb23d2b619962ae68b1df9532ec57f8dec1a28bc9a070cc0106a6"
+networkx_version = "3.6.1"
+membership_file = "membership.jsonl"
+source_file = "artifacts/frozen/v2.1/auryx-radar-gold-v2.1.jsonl"
+usage = "Join candidate_pool membership to frozen records by input_hash. Source release_partition is historical; this membership defines the new pool."
+limitations = [
+    "Existing heuristic families are preserved, including prior near-title links.",
+    "No new fuzzy-title or visual-image similarity search was performed.",
+    "Snapshot overlap is allowed; detected evaluation-family overlap is not.",
+    "This is a candidate pool, not a train/validation split or a published release.",
+]
+
+[counts]
+candidate_pool = 6017
+reserved_context = 1146
+evaluation = 600
+
+[decisions]
+existing_candidate = 1553
+snapshot_only_released = 4464
+evaluation_family = 1146
+frozen_evaluation = 600
+
+[source_reservation_reasons]
+evaluation_listing_snapshot = 4464
+"evaluation_family+evaluation_listing_snapshot" = 880
+evaluation_family = 266
+
+[matching_signatures]
+exact_title = 862
+family = 2441
+numeric_variant_title = 2410
+shared_image = 263

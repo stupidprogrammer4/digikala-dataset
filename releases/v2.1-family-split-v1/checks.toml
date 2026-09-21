@@ -1,0 +1,28 @@
+unit_tests_passed = 9
+input_order_independent = true
+candidate_count = 6017
+all_source_records_accounted_for_once = true
+evaluation_byte_identical = true
+exported_source_rows_unchanged = true
+frozen_release_hashes_unchanged = true
+pool_membership_unchanged = true
+bulk_exports_ignored = true
+missing_train_and_validation_categories = [
+    "jewelry.set",
+    "jewelry.half_set",
+]
+category_note = "All 8 set records and the single half-set record already belong to frozen evaluation; they were not moved."
+
+[detected_overlap_counts]
+"train/validation/input_hash" = 0
+"train/validation/source_family" = 0
+"train/validation/product_identity" = 0
+"train/validation/audit_group" = 0
+"train/evaluation/input_hash" = 0
+"train/evaluation/source_family" = 0
+"train/evaluation/product_identity" = 0
+"train/evaluation/audit_group" = 0
+"validation/evaluation/input_hash" = 0
+"validation/evaluation/source_family" = 0
+"validation/evaluation/product_identity" = 0
+"validation/evaluation/audit_group" = 0
