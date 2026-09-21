@@ -1,0 +1,23 @@
+[crawl]
+endpoint = "https://api.digikala.com/discovery/api/v2/categories/{category_id}/products"
+category_ids = [9394, 9396, 11224, 9391, 9393, 9388, 9227, 11225]
+pages_per_category = 50 # 0 follows all pages reported by the API.
+concurrency = 2
+delay_seconds = 1.0
+timeout_seconds = 30.0
+user_agent = "digikala-dataset/0.1"
+output = "artifacts/crawl/gold-v1"
+
+[annotation]
+model = "" # Provider-qualified model, e.g. provider/model; set before a live run.
+api_key_env = "LLM_API_KEY"
+api_base = "" # Optional custom endpoint.
+concurrency = 2
+timeout_seconds = 60.0
+max_tokens = 2048
+json_mode = false # Enable only when supported by the selected provider/model.
+
+[hub]
+repo_id = "amupouya/digikala-gold-products-fa"
+revision = "ac32109d617722eea34c1ff69f5d0b086afe82fc"
+local_dir = "artifacts/hub/source"

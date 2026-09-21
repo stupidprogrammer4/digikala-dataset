@@ -1,0 +1,67 @@
+# Local documentation and working instructions
+/docs/
+/AGENTS.md
+/WORK.md
+/.local-review/
+
+# Local datasets, environments, models and experiment outputs
+*.json
+*.jsonl
+/data/
+/artifacts/
+/models/
+/checkpoints/
+/outputs/
+/runs/
+.venv/
+.venv-*/
+venv/
+
+# Download and tool caches
+.cache/
+.huggingface/
+.ollama/
+wandb/
+mlruns/
+mlartifacts/
+
+# Model weights, adapters and training state
+*.safetensors
+*.gguf
+*.ggml
+*.pt
+*.pth
+*.ckpt
+pytorch_model*.bin
+adapter_model*.bin
+optimizer*.bin
+optimizer*.pt
+scheduler.pt
+
+# Python and build output from external tools
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.log
+
+# Secrets and local configuration
+/config.toml
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Editor and operating system files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
