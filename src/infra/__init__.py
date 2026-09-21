@@ -1,0 +1,1 @@
+"""Infra for digikala-dataset."""
