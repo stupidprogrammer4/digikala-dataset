@@ -1,0 +1,50 @@
+version = "gold-api-prompts/1.1"
+status = "offline_checked_live_validation_pending"
+semantic_schema = "gold-semantic/2.0"
+assembly = "Concatenate system_parts in listed order with two newline characters. Send one source-only JSON envelope as the user message. Each request starts a fresh conversation."
+input_fields = [
+    "record_id",
+    "source",
+]
+output_fields = [
+    "record_id",
+    "label",
+]
+historical_sources = "history/manifest.toml"
+limitations = [
+    "No live API model run has been performed for these prompts.",
+    "Prompt text alone does not guarantee JSON compliance, evidence support or resistance to prompt injection.",
+    "Provider structured-output support differs; runtime handling must be implemented and tested.",
+    "Review is AI review, never human review.",
+    "Historical aliases are preserved as provenance; no implicit alias-table injection or blind legacy normalization is required by the API prompts.",
+]
+context_policy = "Send shared policy plus exactly one task prompt. Do not attach history, examples, schemas or unused dataset fields."
+examples = "tests/fixtures/prompt_examples.py (not part of runtime prompts)"
+
+[tasks.labeling]
+system_parts = [
+    "gold-policy-v1.md",
+    "gold-labeling-api-v1.md",
+]
+
+[tasks.blind_review]
+system_parts = [
+    "gold-policy-v1.md",
+    "gold-review-api-v1.md",
+]
+
+[files."gold-policy-v1.md"]
+sha256 = "d0158c0e219ffb122b306a223f4924fa02bdb4a01f176cc245ebc9be9ce8c20b"
+bytes = 4416
+
+[files."gold-labeling-api-v1.md"]
+sha256 = "6cf6b8207676951e2abc160f5cc1043051973855fd7a6a3e5c5d826bb8567caf"
+bytes = 200
+
+[files."gold-review-api-v1.md"]
+sha256 = "d3b173f330482e1461ab2a48fce0d4a77a1b8c8a163fa29e3c042d6037a93d79"
+bytes = 352
+
+[prompt_words]
+labeling = 590
+blind_review = 612
