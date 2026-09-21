@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=78"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "digikala-dataset"
+version = "0.1.0"
+description = "Digikala collection, evidence-based annotation and dataset maintenance"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.28,<0.29",
+  "huggingface-hub>=0.36,<1",
+  "datasets==4.0.0",
+  "networkx==3.6.1",
+  "jsonschema>=4.23,<5",
+]
+
+[project.optional-dependencies]
+labeling = ["litellm>=1.75,<2"]
+
+[project.scripts]
+digikala-dataset = "presentation.cli:main"
+
+[project.urls]
+Repository = "https://github.com/stupidprogrammer4/digikala-dataset"
+Issues = "https://github.com/stupidprogrammer4/digikala-dataset/issues"
+Dataset = "https://huggingface.co/datasets/amupouya/digikala-gold-products-fa"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"tools.prompts" = ["*.md", "*.toml", "history/*.md", "history/*.toml"]
+infra = ["contracts/*.toml"]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["*.json", "*.jsonl"]
