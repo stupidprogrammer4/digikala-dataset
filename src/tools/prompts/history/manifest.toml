@@ -1,0 +1,28 @@
+status = "historical_only"
+notes = "Original interactive instructions, preserved verbatim. Not the active API prompt. Historical exact model versions remain unknown."
+
+[[files]]
+file = "gold-labeling-v1.md"
+archive_relative_source = "src/labeling/prompts/gold-labeling-v1.md"
+sha256 = "aa99dd1970b9f1530f331a7037e2a4f76cd7db344879f2acd37265e85e37e1dd"
+
+[[files]]
+file = "gold-labeling-v2.md"
+archive_relative_source = "src/labeling/prompts/gold-labeling-v2.md"
+sha256 = "c3f07c91b5901f0211e6c04d9bb4337eb091924596f390120a5c1ecb3fa378e4"
+
+[[files]]
+file = "gold-labeling-v3.md"
+archive_relative_source = "src/labeling/prompts/gold-labeling-v3.md"
+sha256 = "3e89d9dc90b45f79f9eab109b770af0b3d47189787eb21557219f4177d9d94fd"
+
+[[files]]
+file = "blind-ai-review-v1.md"
+archive_relative_source = "artifacts/ai-evaluation-v1/prompt.md"
+sha256 = "bfeedd0468c73fb46c47e61e6413267dac39b3afc78eae00c5f12b2611c2779a"
+
+[[files]]
+file = "gold-v2-concept-aliases.json"
+archive_relative_source = "docs/datasets/gold-v2-concept-aliases.json"
+sha256 = "6af48271adf8e21e24da2830a9e986fe58f6f8c472a2c4e93ef7ef8063164c3d"
+local_artifact = "artifacts/repository-json-v1/src/tools/prompts/history/gold-v2-concept-aliases.json"
