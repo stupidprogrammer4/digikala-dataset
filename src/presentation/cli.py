@@ -9,7 +9,7 @@ from infra.settings import SettingsLoader
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(prog="digikala-dataset")
+    parser = argparse.ArgumentParser(prog="digikala-gold-products-fa")
     parser.add_argument("--config", type=Path, default=Path("config.toml"))
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("crawl", help="Collect configured categories; resume existing raw pages")

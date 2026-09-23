@@ -1,1 +1,1 @@
-"""Tools for digikala-dataset."""
+"""Tools for digikala-gold-products-fa."""

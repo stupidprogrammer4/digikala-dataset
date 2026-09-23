@@ -3,9 +3,9 @@ requires = ["setuptools>=78"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "digikala-dataset"
+name = "digikala-gold-products-fa"
 version = "0.1.0"
-description = "Digikala collection, evidence-based annotation and dataset maintenance"
+description = "Build and maintain a Persian dataset of Digikala gold products with evidence-backed AI annotations"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
@@ -22,6 +22,7 @@ dependencies = [
 labeling = ["litellm>=1.75,<2"]
 
 [project.scripts]
+digikala-gold-products-fa = "presentation.cli:main"
 digikala-dataset = "presentation.cli:main"
 
 [project.urls]

@@ -5,7 +5,7 @@ pages_per_category = 50 # 0 follows all pages reported by the API.
 concurrency = 2
 delay_seconds = 1.0
 timeout_seconds = 30.0
-user_agent = "digikala-dataset/0.1"
+user_agent = "digikala-gold-products-fa/0.1"
 output = "artifacts/crawl/gold-v1"
 
 [annotation]

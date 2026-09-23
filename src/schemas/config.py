@@ -12,7 +12,7 @@ class CrawlSettings:
     concurrency: int = 2
     delay_seconds: float = 1.0
     timeout_seconds: float = 30.0
-    user_agent: str = "digikala-dataset/0.1"
+    user_agent: str = "digikala-gold-products-fa/0.1"
 
 
 @dataclass(frozen=True)

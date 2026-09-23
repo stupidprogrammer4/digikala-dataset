@@ -1,1 +1,1 @@
-"""Presentation for digikala-dataset."""
+"""Presentation for digikala-gold-products-fa."""

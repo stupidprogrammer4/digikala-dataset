@@ -1,1 +1,1 @@
-"""Schemas for digikala-dataset."""
+"""Schemas for digikala-gold-products-fa."""

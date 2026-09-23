@@ -1,1 +1,1 @@
-"""Infra for digikala-dataset."""
+"""Infra for digikala-gold-products-fa."""
