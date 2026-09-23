@@ -1,4 +1,3 @@
 include config.toml.sample
 recursive-include releases *.toml
 recursive-include tests *.py
-global-exclude *.json *.jsonl

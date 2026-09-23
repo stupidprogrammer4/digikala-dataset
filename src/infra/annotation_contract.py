@@ -1,15 +1,14 @@
-"""Validate model JSON against the declarative contract stored in TOML."""
+"""Validate model JSON against the declarative JSON Schema contract."""
 
 from importlib.resources import files
 import json
-import tomllib
 
 from jsonschema import Draft202012Validator
 
 
 class AnnotationContract:
     def __init__(self):
-        schema = tomllib.loads(files("infra").joinpath("contracts/gold-semantic.toml").read_text(encoding="utf-8"))
+        schema = json.loads(files("infra").joinpath("contracts/gold-semantic.json").read_text(encoding="utf-8"))
         self.validator = Draft202012Validator(schema)
 
     def parse(self, content: str, item: dict) -> dict:

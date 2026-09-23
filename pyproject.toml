@@ -33,8 +33,5 @@ Dataset = "https://huggingface.co/datasets/amupouya/digikala-gold-products-fa"
 where = ["src"]
 
 [tool.setuptools.package-data]
-"tools.prompts" = ["*.md", "*.toml", "history/*.md", "history/*.toml"]
-infra = ["contracts/*.toml"]
-
-[tool.setuptools.exclude-package-data]
-"*" = ["*.json", "*.jsonl"]
+"tools.prompts" = ["*.md", "*.toml", "history/*.md", "history/*.toml", "history/*.json"]
+infra = ["contracts/*.json"]

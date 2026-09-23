@@ -1,0 +1,96 @@
+{
+  "schema_version": "gold-concept-aliases/1.0",
+  "semantic_schema": "gold-semantic/2.0",
+  "purpose": "Reviewed lexical equivalences used during coordinator quality control, not a source-text classifier.",
+  "design_details": {
+    "chain_pattern": {
+      "flamingo": "cable",
+      "ring_link": "cable",
+      "ring_links": "cable",
+      "ball": "beaded",
+      "basketweave": "basket_weave",
+      "oval_links": "oval_link",
+      "pen_case": "pen_link",
+      "disc_link": "disc"
+    },
+    "earring_form": {
+      "clip_on": "clip"
+    },
+    "surface_finish": {
+      "relief": "embossed",
+      "enamel": "enameled"
+    },
+    "bracelet_form": {
+      "adjustable": "slider_adjustable",
+      "slider": "slider_adjustable",
+      "narrow": "narrow_band",
+      "wide": "wide_band",
+      "thread_band": "cord_band",
+      "stretch": "elastic_band"
+    },
+    "decoration": {
+      "plaque": "plaque_embellished",
+      "narrow": "narrow_profile",
+      "solid_design": "solid",
+      "mother_of_pearl": "shell_embellished",
+      "mother_of_pearl_embellished": "shell_embellished",
+      "bvlgari_inspired": "bulgari_inspired",
+      "over_clothing_necklace": "over_clothing",
+      "love_collection_inspired": "love_inspired"
+    },
+    "motif_detail": {
+      "mahsa": "mahsa_name",
+      "zahra": "zahra_name",
+      "sara": "sara_name",
+      "asma": "asma_name",
+      "setayesh": "setayesh_name",
+      "fatemeh": "fatemeh_name",
+      "maryam": "maryam_name",
+      "masoumeh": "masoumeh_name",
+      "elaheh": "elaheh_name",
+      "nilay": "nilay_name",
+      "romina": "romina_name",
+      "hania": "hania_name",
+      "rayan": "rayan_name",
+      "gandom": "gandom_name",
+      "panah": "panah_name",
+      "mohammad": "mohammad_name",
+      "atefeh": "atefeh_name",
+      "abolfazl": "abolfazl_name",
+      "fereshteh": "fereshteh_name",
+      "raha": "raha_name",
+      "parisa": "parisa_name",
+      "elham": "elham_name",
+      "zeynab": "zeynab_name",
+      "mehrdad": "mehrdad_name",
+      "amirali": "amirali_name",
+      "four_petaled": "four_petals",
+      "four_petaled_flower": "four_petals",
+      "five_petaled": "five_petals",
+      "five_petaled_flower": "five_petals",
+      "letter_nun": "letter_noon",
+      "persian_letter_he": "letter_heh",
+      "persian_letter_fe": "letter_fe"
+    }
+  },
+  "motifs": {
+    "antler": "antlers",
+    "music_note": "musical_note",
+    "geometric": "geometric_pattern",
+    "poetry": "poetic_inscription",
+    "quranic_verse": "quranic_inscription",
+    "wa_in_yakad": "quranic_inscription",
+    "seashell": "shell",
+    "allah": "allah_inscription"
+  },
+  "motif_families": {
+    "snowflake": "celestial",
+    "teddy_bear": "object",
+    "arabesque": "other"
+  },
+  "letter_rule": "Specific letter_X motif concepts become letter/text plus the same letter_X in motif_detail, preserving evidence.",
+  "limitations": [
+    "Aliases do not establish evidence support.",
+    "Specificity, product construction and named themes require contextual expert decisions."
+  ]
+}

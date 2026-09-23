@@ -5,8 +5,6 @@
 /.local-review/
 
 # Local datasets, environments, models and experiment outputs
-*.json
-*.jsonl
 /data/
 /artifacts/
 /models/
