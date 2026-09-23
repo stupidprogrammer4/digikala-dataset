@@ -1,26 +1,33 @@
-# digikala-dataset
+# digikala-gold-products-fa
 
-A Python pipeline for collecting Digikala product listings, extracting explicit
-facts, annotating supported semantic features with an LLM, and maintaining
-versioned datasets. The first dataset covers Persian gold-product listings:
-jewelry, coins, bars, and melted gold.
+A Persian dataset of **7,763 Digikala gold-product listings**, together with the
+code, annotation prompts and release records used to build and maintain it.
+The product domain covers gold jewelry, coins, bars and melted gold. Prices are
+recorded in Iranian rials (`IRR`).
 
-**Dataset:** [Digikala Gold Products (Persian) on Hugging Face](https://huggingface.co/datasets/amupouya/digikala-gold-products-fa)
+**Published dataset:** [Digikala Gold Products (Persian) on Hugging Face](https://huggingface.co/datasets/amupouya/digikala-gold-products-fa)
 
-> Gold refers to the product domain; annotations are AI-generated and
-> coordinator-reviewed, not a fully human-labeled gold standard.
+## What we built
 
-This project and its initial dataset were developed through an iterative,
-OpenAI-assisted workflow: collection, deterministic normalization, parallel
-annotation sessions, independent AI review, and coordinator corrections.
-The historical labels came from interactive sessions. Exact teacher model
-versions were not recorded, so unknown versions remain null. AI review is
-recorded as AI review; it is not represented as human verification.
+- Collected product listings and normalized explicit source facts.
+- Created evidence-backed semantic annotations through an iterative,
+  OpenAI-assisted workflow of interactive annotation sessions, independent AI
+  review and coordinator corrections.
+- Published and froze **v2.1: 7,763 products**, including **600 evaluation records**.
+- Audited historical reservations locally and built family-grouped partitions:
+  **4,803 train**, **1,214 validation**, **600 evaluation**, and **1,146 reserved**.
+  These later partitions are separate from the published v2.1 membership.
+- Packaged collection, normalization, API annotation, validation, export and
+  maintenance code so future runs can follow a documented process.
 
-The current code turns that workflow into configurable API-driven stages.
-It supports providers available through LiteLLM, with a model name, API key
-environment variable, and optional endpoint. It is not guaranteed to reproduce
-the historical labels exactly. Fine-tuning and model serving are outside scope.
+Gold refers to the **product domain**, not a human gold standard. Historical
+labels and independent reviews were AI-generated; coordinator corrections do not
+establish human verification. Exact historical teacher model versions were not
+recorded and remain unknown. The evaluation is an AI-reviewed reference.
+
+The current API pipeline is a later implementation of that process. It does not
+recreate the historical interactive model sessions or guarantee identical labels.
+Fine-tuning and model serving are outside this project's scope.
 
 ## Published dataset
 
@@ -103,17 +110,21 @@ incomplete results and existing output files.
 
 ## Quick start
 
+The local package and primary command are named `digikala-gold-products-fa`.
+The GitHub repository is currently still `stupidprogrammer4/digikala-dataset`;
+`digikala-dataset` remains an installed command alias for existing scripts.
+
 Requires Python **3.11+**. The current offline checks were run with Python 3.13.
 No GPU is required for API-based annotation.
 
 ```bash
-git clone https://github.com/stupidprogrammer4/digikala-dataset.git
-cd digikala-dataset
+git clone https://github.com/stupidprogrammer4/digikala-dataset.git digikala-gold-products-fa
+cd digikala-gold-products-fa
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e .
 cp config.toml.sample config.toml
-digikala-dataset --help
+digikala-gold-products-fa --help
 ```
 
 For model annotation, also install the optional provider SDK:
@@ -147,19 +158,19 @@ HTTP 401, 403, or 429 rather than retrying around restrictions.
 
 ```bash
 # Collect and normalize. Adjust paths if you changed crawl.output.
-digikala-dataset crawl
-digikala-dataset normalize artifacts/crawl/gold-v1/manifest.json artifacts/products.jsonl
+digikala-gold-products-fa crawl
+digikala-gold-products-fa normalize artifacts/crawl/gold-v1/manifest.json artifacts/products.jsonl
 
 # Set your model and credentials before these commands.
-digikala-dataset label artifacts/products.jsonl artifacts/label-run-v1
-digikala-dataset review artifacts/products.jsonl artifacts/review-run-v1
-digikala-dataset export artifacts/products.jsonl artifacts/label-run-v1 artifacts/export/dataset.jsonl
+digikala-gold-products-fa label artifacts/products.jsonl artifacts/label-run-v1
+digikala-gold-products-fa review artifacts/products.jsonl artifacts/review-run-v1
+digikala-gold-products-fa export artifacts/products.jsonl artifacts/label-run-v1 artifacts/export/dataset.jsonl
 
 # Download the published dataset at the configured revision.
-digikala-dataset download
+digikala-gold-products-fa download
 
 # Publish an explicitly selected folder to a new branch of an existing dataset repo.
-digikala-dataset publish artifacts/export --repo-id YOUR_ACCOUNT/YOUR_DATASET --revision release-new
+digikala-gold-products-fa publish artifacts/export --repo-id YOUR_ACCOUNT/YOUR_DATASET --revision release-new
 ```
 
 The publish command creates a new branch, refusing `main`, `master`, and existing
@@ -169,7 +180,7 @@ before publishing. Labeling and export never publish automatically.
 For a different local configuration, place the global option before the command:
 
 ```bash
-digikala-dataset --config path/to/local-config.toml crawl
+digikala-gold-products-fa --config path/to/local-config.toml crawl
 ```
 
 ## Frozen release maintenance
@@ -200,8 +211,8 @@ Metadata and original-file hashes are in [releases/](releases/), including the
 [artifact index](releases/artifacts.toml).
 
 ```bash
-digikala-dataset audit-pool
-digikala-dataset split
+digikala-gold-products-fa audit-pool
+digikala-gold-products-fa split
 ```
 
 These two commands require the historical frozen snapshot under
@@ -217,26 +228,40 @@ are not automatically assigned this historical release's split policy.
 ```text
 src/
   services/       Small classes coordinating collection, annotation and maintenance
-  infra/          HTTP/model/Hub clients, stores, settings and response contracts
+  infra/          HTTP/model/Hub clients, stores and settings
+    contracts/    Packaged JSON Schema response contract
   schemas/        Standard-library dataclasses for application records
   tools/          Pure transformations, family policies and versioned prompts
   presentation/   CLI and concrete dependency wiring
-tests/            Offline tests and synthetic Python examples
-releases/         TOML release metadata and artifact hashes
+tests/            Offline tests, opt-in live API checks and synthetic examples
+releases/         Versioned release metadata and original artifact hashes
+artifacts/        Ignored datasets, raw JSON pages, JSONL exports and live results
 config.toml.sample
 pyproject.toml
 ```
 
-Infrastructure uses HTTPX, Hugging Face Hub, NetworkX, Datasets, jsonschema, and
-the optional LiteLLM SDK directly. The model-response schema is stored in TOML
-and validated with jsonschema. Application-owned records use dataclasses.
+HTTPX, Hugging Face Hub, NetworkX, Datasets, jsonschema and optional LiteLLM
+provide the external integrations and graph/dataset operations. Application-owned
+records use standard-library dataclasses. Services coordinate stages; infrastructure
+owns network and file I/O; tools implement pure transformations; the CLI wires them.
 
-Git and package resources contain **no JSON or JSONL files**. Runtime API data,
-checkpoints, and exported datasets still use JSON/JSONL under ignored paths.
-The original files are retained locally with their original hashes; changing
-the repository format does not change the frozen dataset. Local settings,
-credentials, dataset payloads, model artifacts, and internal working notes
-are excluded from Git.
+File formats follow their purpose:
+
+| Content | Location and format | Tracked / packaged |
+| --- | --- | --- |
+| Model response contract | `src/infra/contracts/gold-semantic.json` (JSON Schema) | Both |
+| Active prompts and metadata | `src/tools/prompts/` (Markdown / TOML) | Both |
+| Historical prompts and alias policy | `src/tools/prompts/history/` (Markdown / JSON / TOML) | Both; excluded from model context |
+| Synthetic examples | `tests/fixtures/` (Python) | Git and source distribution; excluded from wheel |
+| Release references and hashes | `releases/` (TOML) | Git and source distribution |
+| Raw pages, receipts, runs and datasets | `artifacts/` (JSON / JSONL and other outputs) | Neither |
+| Local settings / safe template | `config.toml` / `config.toml.sample` (TOML) | Only the template |
+
+JSON and JSONL are allowed in Git and package resources when they belong there.
+There is no extension-wide exclusion. Bulk data and generated outputs stay in
+ignored directories; secrets, environments and caches also stay out of Git.
+Frozen dataset files retain their original bytes and hashes. Existing TOML
+metadata does not need conversion merely because JSON is allowed again.
 
 Active prompts are in [src/tools/prompts/](src/tools/prompts/). Each request uses
 only the shared policy, one task prompt, and product evidence. Historical
@@ -250,16 +275,34 @@ python -m unittest discover -s tests -v
 python -m pip check
 ```
 
-The 26 offline tests cover collection/resume, access restrictions, normalization,
+The offline tests cover collection/resume, access restrictions, normalization,
 response identity and evidence, annotation resume/export, file-write failures,
 Hub revision handling, reservation policy, and family separation. They run from
 a clean copy against an installed wheel without private/local data. The frozen
 maintenance outputs have also been replayed and compared byte-for-byte locally.
 
-The refactored live crawler and provider integrations have not been validated
-against live collection/model calls. Tests use synthetic marketplace envelopes
-and mocked provider responses. The archived original raw pages were unavailable
-during this refactor, so a historical raw-to-label replay is not claimed.
+Run the optional public API checks explicitly (no API key or model call):
+
+```bash
+GOLD_DATASET_LIVE=1 python -m unittest discover -s tests -p test_live.py -v
+```
+
+The live tests use the sample configuration, constrain collection to its first
+category and one page, and save evidence under `artifacts/live-tests/`. They also
+force-download the pinned public Hub card and response schema and compare their
+hashes to the freeze manifest. Failures remain failures; network checks are skipped
+only when not explicitly enabled. The Hub check does not download the full dataset.
+
+Verified on **2026-09-23**: all 26 offline tests passed; both public API tests
+passed. One live Digikala page produced **23 normalized products**, and both
+pinned Hub files matched their frozen hashes. This verifies one current page,
+not all categories, pagination or sustained crawling.
+
+Live model annotation remains unverified. Offline model tests use mocked
+responses; they do not establish model quality. A live annotation test needs the
+optional labeling SDK and a configured provider/model with available credentials
+and confirmed free quota. The archived original raw pages were unavailable during
+the refactor, so a historical raw-to-label replay is not claimed.
 
 Dataset limitations include first-page/ranking sampling bias, sparse positive
 style/use-case labels, severe class imbalance, uncalibrated confidence, unknown
